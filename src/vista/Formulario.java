@@ -79,7 +79,7 @@ public class Formulario extends javax.swing.JFrame {
                 registro[i].getEstado(),
                 calcularValorEstimado(registro[i]) 
             });
-}
+            }
 
         }
     }
@@ -397,7 +397,8 @@ public class Formulario extends javax.swing.JFrame {
                                         registro[pos].getModelo(),
                                         registro[pos].getCapacidad(),    
                                         registro[pos].getTipo(),
-                                        registro[pos].getEstado()});
+                                        registro[pos].getEstado(),
+                                        calcularValorEstimado(registro[pos])});
             
         }else{
             JOptionPane.showMessageDialog(this, "No se encontraron datos en la busqueda");
