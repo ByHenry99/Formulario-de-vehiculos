@@ -1,5 +1,6 @@
 package vista;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.Vehiculo;
@@ -148,7 +149,6 @@ public class Formulario extends javax.swing.JFrame {
         btnModificar.setEnabled(true);
         btnActualizar.setEnabled(false);
         btnEliminar.setEnabled(true);
-        limpiar();
         mostrar();
         lblContador.setText(registro.length + "");
     }
@@ -228,7 +228,7 @@ public class Formulario extends javax.swing.JFrame {
 
         lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblTitulo.setText("GESTION DE VEHICULOS");
-        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
+        jPanel1.add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
 
         lblPlaca.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblPlaca.setText("PLACA: ");
@@ -239,24 +239,40 @@ public class Formulario extends javax.swing.JFrame {
                 txtPlacaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 340, 30));
+        jPanel1.add(txtPlaca, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 340, 30));
 
         lblModelo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblModelo.setText("MODELO:");
         jPanel1.add(lblModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, 30));
-        jPanel1.add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 340, 30));
+        jPanel1.add(txtModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 340, 30));
 
         lblCapacidad.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblCapacidad.setText("CAPACIDAD:");
         jPanel1.add(lblCapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, 30));
-        jPanel1.add(txtCapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 340, 30));
+
+        txtCapacidad.setForeground(new java.awt.Color(102, 102, 102));
+        txtCapacidad.setText("Ingrese la capcidad del vehiculo en kilogramos");
+        txtCapacidad.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCapacidadFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCapacidadFocusLost(evt);
+            }
+        });
+        txtCapacidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCapacidadActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtCapacidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 340, 30));
 
         lblTipo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTipo.setText("TIPO:");
-        jPanel1.add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 60, 30));
+        jPanel1.add(lblTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 60, 30));
 
         cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Camion", "Furgoneta", "Camioneta"}));
-        jPanel1.add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, 30));
+        jPanel1.add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, 30));
 
         lblEstado.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblEstado.setText("ESTADO:");
@@ -265,7 +281,7 @@ public class Formulario extends javax.swing.JFrame {
         estadoVehiculo.add(rdbActivo);
         rdbActivo.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         rdbActivo.setText("Activo");
-        jPanel1.add(rdbActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, 50));
+        jPanel1.add(rdbActivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, 50));
 
         estadoVehiculo.add(rdbMantenimiento);
         rdbMantenimiento.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -275,7 +291,7 @@ public class Formulario extends javax.swing.JFrame {
                 rdbMantenimientoActionPerformed(evt);
             }
         });
-        jPanel1.add(rdbMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, -1, 50));
+        jPanel1.add(rdbMantenimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, -1, 50));
 
         btnEnviar.setBackground(new java.awt.Color(0, 255, 153));
         btnEnviar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -287,7 +303,7 @@ public class Formulario extends javax.swing.JFrame {
                 btnEnviarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 160, -1));
+        jPanel1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 170, -1));
 
         btnConsultar.setBackground(new java.awt.Color(0, 255, 153));
         btnConsultar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -299,7 +315,7 @@ public class Formulario extends javax.swing.JFrame {
                 btnConsultarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 210, -1));
+        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 230, -1));
 
         btnModificar.setBackground(new java.awt.Color(0, 255, 153));
         btnModificar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -345,7 +361,7 @@ public class Formulario extends javax.swing.JFrame {
 
         lblContador.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblContador.setText("0");
-        jPanel1.add(lblContador, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 470, -1, 40));
+        jPanel1.add(lblContador, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 470, -1, 40));
 
         btnActualizar.setBackground(new java.awt.Color(0, 255, 153));
         btnActualizar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -356,7 +372,7 @@ public class Formulario extends javax.swing.JFrame {
                 btnActualizarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, -1, -1));
+        jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, -1, -1));
 
         lblAnuncio.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblAnuncio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/Anuncio.png"))); // NOI18N
@@ -440,6 +456,12 @@ public class Formulario extends javax.swing.JFrame {
             double capacidad = Double.parseDouble(capacidadString);
             insertar(placa, modelo, capacidad, tipo, estado);
         }
+        
+        if (txtCapacidad.getText().trim().isEmpty()) {
+            txtCapacidad.setForeground(new Color(102,102,102));
+            txtCapacidad.setText("Ingrese la capacidad del vehiculo en kilogramos");
+        }
+        
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void txtPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlacaActionPerformed
@@ -473,6 +495,22 @@ public class Formulario extends javax.swing.JFrame {
           JOptionPane.showMessageDialog(this, "Debes seleccionar un registro");
         }
     }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void txtCapacidadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCapacidadFocusGained
+        txtCapacidad.setText("");
+        txtCapacidad.setForeground(Color.BLACK);
+    }//GEN-LAST:event_txtCapacidadFocusGained
+
+    private void txtCapacidadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCapacidadFocusLost
+        if (txtCapacidad.getText().trim().isEmpty()) {
+            txtCapacidad.setForeground(new Color(102,102,102));
+            txtCapacidad.setText("Ingrese la capacidad del vehiculo en kilogramos");
+        }
+    }//GEN-LAST:event_txtCapacidadFocusLost
+
+    private void txtCapacidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCapacidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCapacidadActionPerformed
 
     /**
      * @param args the command line arguments
